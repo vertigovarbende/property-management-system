@@ -1,6 +1,8 @@
 package com.deveyk.property_management.controller.impl;
 
 import com.deveyk.property_management.controller.IFixtureController;
+import com.deveyk.property_management.dto.DtoFixture;
+import com.deveyk.property_management.dto.iu.DtoFixtureIU;
 import com.deveyk.property_management.entity.Fixture;
 import com.deveyk.property_management.service.IFixtureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +19,19 @@ public class FixtureController implements IFixtureController {
 
     @PostMapping("/save")
     @Override
-    public Fixture saveFixture(@RequestBody Fixture fixture) {
-        return fixtureService.saveFixture(fixture);
+    public DtoFixture saveFixture(@RequestBody DtoFixtureIU dtoFixtureIU) {
+        return fixtureService.saveFixture(dtoFixtureIU);
     }
 
     @GetMapping("/list")
     @Override
-    public List<Fixture> getAllFixtures() {
+    public List<DtoFixture> getAllFixtures() {
         return fixtureService.getAllFixtures();
     }
 
     @GetMapping("/list/{id}")
     @Override
-    public Fixture getFixtureById(@PathVariable(name = "id") Long id) {
+    public DtoFixture getFixtureById(@PathVariable(name = "id") Long id) {
         return fixtureService.getFixtureById(id);
     }
 
@@ -41,8 +43,8 @@ public class FixtureController implements IFixtureController {
 
     @PutMapping("/update/{id}")
     @Override
-    public Fixture updateFixtureById(@PathVariable(name = "id") Long id,
-                                     @RequestBody Fixture updateFixture) {
-        return fixtureService.updateFixtureById(id, updateFixture);
+    public DtoFixture updateFixtureById(@PathVariable(name = "id") Long id,
+                                     @RequestBody DtoFixtureIU dtoFixtureIU) {
+        return fixtureService.updateFixtureById(id, dtoFixtureIU);
     }
 } 

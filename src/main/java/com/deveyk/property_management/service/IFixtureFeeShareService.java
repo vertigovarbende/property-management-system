@@ -1,17 +1,20 @@
 package com.deveyk.property_management.service;
 
+import com.deveyk.property_management.dto.DtoFixture;
+import com.deveyk.property_management.dto.DtoFixtureFeeShare;
+import com.deveyk.property_management.dto.iu.DtoFixtureFeeShareIU;
 import com.deveyk.property_management.entity.FixtureFeeShare;
 import java.util.List;
 
 public interface IFixtureFeeShareService {
 
-    public FixtureFeeShare saveFixtureFeeShare(FixtureFeeShare fixtureFeeShare);
+    public DtoFixtureFeeShare saveFixtureFeeShare(DtoFixtureFeeShareIU dtoFixtureFeeShareIU);
 
-    public List<FixtureFeeShare> getAllFixtureFeeShares();
+    public List<DtoFixtureFeeShare> getAllFixtureFeeShares();
 
-    public FixtureFeeShare getFixtureFeeShareById(Long id);
+    public DtoFixtureFeeShare getFixtureFeeShareById(Long id);
 
     public void deleteFixtureFeeShareById(Long id);
 
-    public FixtureFeeShare updateFixtureFeeShareById(Long id, FixtureFeeShare updateFixtureFeeShare);
+    public DtoFixtureFeeShare updateFixtureFeeShareById(Long id, DtoFixtureFeeShareIU dtoFixtureFeeShareIU);
 } 

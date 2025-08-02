@@ -1,6 +1,8 @@
 package com.deveyk.property_management.controller.impl;
 
 import com.deveyk.property_management.controller.IFixtureFeeShareController;
+import com.deveyk.property_management.dto.DtoFixtureFeeShare;
+import com.deveyk.property_management.dto.iu.DtoFixtureFeeShareIU;
 import com.deveyk.property_management.entity.FixtureFeeShare;
 import com.deveyk.property_management.service.IFixtureFeeShareService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +19,19 @@ public class FixtureFeeShareController implements IFixtureFeeShareController {
 
     @PostMapping("/save")
     @Override
-    public FixtureFeeShare saveFixtureFeeShare(@RequestBody FixtureFeeShare fixtureFeeShare) {
-        return fixtureFeeShareService.saveFixtureFeeShare(fixtureFeeShare);
+    public DtoFixtureFeeShare saveFixtureFeeShare(@RequestBody DtoFixtureFeeShareIU dtoFixtureFeeShareIU) {
+        return fixtureFeeShareService.saveFixtureFeeShare(dtoFixtureFeeShareIU);
     }
 
     @GetMapping("/list")
     @Override
-    public List<FixtureFeeShare> getAllFixtureFeeShares() {
+    public List<DtoFixtureFeeShare> getAllFixtureFeeShares() {
         return fixtureFeeShareService.getAllFixtureFeeShares();
     }
 
     @GetMapping("/list/{id}")
     @Override
-    public FixtureFeeShare getFixtureFeeShareById(@PathVariable(name = "id") Long id) {
+    public DtoFixtureFeeShare getFixtureFeeShareById(@PathVariable(name = "id") Long id) {
         return fixtureFeeShareService.getFixtureFeeShareById(id);
     }
 
@@ -41,8 +43,8 @@ public class FixtureFeeShareController implements IFixtureFeeShareController {
 
     @PutMapping("/update/{id}")
     @Override
-    public FixtureFeeShare updateFixtureFeeShareById(@PathVariable(name = "id") Long id,
-                                                     @RequestBody FixtureFeeShare updateFixtureFeeShare) {
-        return fixtureFeeShareService.updateFixtureFeeShareById(id, updateFixtureFeeShare);
+    public DtoFixtureFeeShare updateFixtureFeeShareById(@PathVariable(name = "id") Long id,
+                                                     @RequestBody DtoFixtureFeeShareIU dtoFixtureFeeShareIU) {
+        return fixtureFeeShareService.updateFixtureFeeShareById(id, dtoFixtureFeeShareIU);
     }
 } 

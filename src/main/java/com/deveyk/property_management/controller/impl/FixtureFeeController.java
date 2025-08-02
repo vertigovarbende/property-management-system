@@ -1,6 +1,8 @@
 package com.deveyk.property_management.controller.impl;
 
 import com.deveyk.property_management.controller.IFixtureFeeController;
+import com.deveyk.property_management.dto.DtoFixtureFee;
+import com.deveyk.property_management.dto.iu.DtoFixtureFeeIU;
 import com.deveyk.property_management.entity.FixtureFee;
 import com.deveyk.property_management.service.IFixtureFeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +19,19 @@ public class FixtureFeeController implements IFixtureFeeController {
 
     @PostMapping("/save")
     @Override
-    public FixtureFee saveFixtureFee(@RequestBody FixtureFee fixtureFee) {
-        return fixtureFeeService.saveFixtureFee(fixtureFee);
+    public DtoFixtureFee saveFixtureFee(@RequestBody DtoFixtureFeeIU dtoFixtureFeeIU) {
+        return fixtureFeeService.saveFixtureFee(dtoFixtureFeeIU);
     }
 
     @GetMapping("/list")
     @Override
-    public List<FixtureFee> getAllFixtureFees() {
+    public List<DtoFixtureFee> getAllFixtureFees() {
         return fixtureFeeService.getAllFixtureFees();
     }
 
     @GetMapping("/list/{id}")
     @Override
-    public FixtureFee getFixtureFeeById(@PathVariable(name = "id") Long id) {
+    public DtoFixtureFee getFixtureFeeById(@PathVariable(name = "id") Long id) {
         return fixtureFeeService.getFixtureFeeById(id);
     }
 
@@ -41,8 +43,8 @@ public class FixtureFeeController implements IFixtureFeeController {
 
     @PutMapping("/update/{id}")
     @Override
-    public FixtureFee updateFixtureFeeById(@PathVariable(name = "id") Long id,
-                                           @RequestBody FixtureFee updateFixtureFee) {
-        return fixtureFeeService.updateFixtureFeeById(id, updateFixtureFee);
+    public DtoFixtureFee updateFixtureFeeById(@PathVariable(name = "id") Long id,
+                                           @RequestBody DtoFixtureFeeIU dtoFixtureFeeIU) {
+        return fixtureFeeService.updateFixtureFeeById(id, dtoFixtureFeeIU);
     }
 } 

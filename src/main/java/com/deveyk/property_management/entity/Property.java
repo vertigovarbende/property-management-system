@@ -3,6 +3,7 @@ package com.deveyk.property_management.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,5 +25,5 @@ public class Property {
     private String address;
 
     @OneToMany(mappedBy = "property")
-    private List<Apartment> apartments;
+    private List<Apartment> apartments = new ArrayList<>();
 }

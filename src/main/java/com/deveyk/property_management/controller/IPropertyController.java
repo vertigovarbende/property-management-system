@@ -1,17 +1,19 @@
 package com.deveyk.property_management.controller;
 
+import com.deveyk.property_management.dto.DtoProperty;
+import com.deveyk.property_management.dto.iu.DtoPropertyIU;
 import com.deveyk.property_management.entity.Property;
 import java.util.List;
 
 public interface IPropertyController {
 
-    public Property saveProperty(Property property);
+    public DtoProperty saveProperty(DtoPropertyIU dtoPropertyIU);
 
-    public List<Property> getAllProperties();
+    public List<DtoProperty> getAllProperties();
 
-    public Property getPropertyById(Long id);
+    public DtoProperty getPropertyById(Long id);
 
     public void deletePropertyById(Long id);
 
-    public Property updatePropertyById(Long id, Property updateProperty);
+    public DtoProperty updatePropertyById(Long id, DtoPropertyIU dtoPropertyIU);
 } 

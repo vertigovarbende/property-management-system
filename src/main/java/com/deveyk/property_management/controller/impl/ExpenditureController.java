@@ -1,6 +1,8 @@
 package com.deveyk.property_management.controller.impl;
 
 import com.deveyk.property_management.controller.IExpenditureController;
+import com.deveyk.property_management.dto.DtoExpenditure;
+import com.deveyk.property_management.dto.iu.DtoExpenditureIU;
 import com.deveyk.property_management.entity.Expenditure;
 import com.deveyk.property_management.service.IExpenditureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +19,19 @@ public class ExpenditureController implements IExpenditureController {
 
     @PostMapping("/save")
     @Override
-    public Expenditure saveExpenditure(@RequestBody Expenditure expenditure) {
-        return expenditureService.saveExpenditure(expenditure);
+    public DtoExpenditure saveExpenditure(@RequestBody DtoExpenditureIU dtoExpenditureIU) {
+        return expenditureService.saveExpenditure(dtoExpenditureIU);
     }
 
     @GetMapping("/list")
     @Override
-    public List<Expenditure> getAllExpenditures() {
+    public List<DtoExpenditure> getAllExpenditures() {
         return expenditureService.getAllExpenditures();
     }
 
     @GetMapping("/list/{id}")
     @Override
-    public Expenditure getExpenditureById(@PathVariable(name = "id") Long id) {
+    public DtoExpenditure getExpenditureById(@PathVariable(name = "id") Long id) {
         return expenditureService.getExpenditureById(id);
     }
 
@@ -41,8 +43,8 @@ public class ExpenditureController implements IExpenditureController {
 
     @PutMapping("/update/{id}")
     @Override
-    public Expenditure updateExpenditureById(@PathVariable(name = "id") Long id,
-                                             @RequestBody Expenditure updateExpenditure) {
-        return expenditureService.updateExpenditureById(id, updateExpenditure);
+    public DtoExpenditure updateExpenditureById(@PathVariable(name = "id") Long id,
+                                             @RequestBody DtoExpenditureIU dtoExpenditureIU) {
+        return expenditureService.updateExpenditureById(id, dtoExpenditureIU);
     }
 } 

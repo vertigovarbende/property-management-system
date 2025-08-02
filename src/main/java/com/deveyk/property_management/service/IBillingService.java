@@ -1,18 +1,20 @@
 package com.deveyk.property_management.service;
 
+import com.deveyk.property_management.dto.DtoBilling;
+import com.deveyk.property_management.dto.iu.DtoBillingIU;
 import com.deveyk.property_management.entity.Billing;
 
 import java.util.List;
 
 public interface IBillingService {
 
-    public Billing saveBilling(Billing billing);
+    public DtoBilling saveBilling(DtoBillingIU dtoBillingIU);
 
-    public List<Billing> getAllBillings();
+    public List<DtoBilling> getAllBillings();
 
-    public Billing getBillingById(Long id);
+    public DtoBilling getBillingById(Long id);
 
     public void deleteBillingById(Long id);
 
-    public Billing updateBillingById(Long id, Billing updateBilling);
+    public DtoBilling updateBillingById(Long id, DtoBillingIU dtoBillingIU);
 }

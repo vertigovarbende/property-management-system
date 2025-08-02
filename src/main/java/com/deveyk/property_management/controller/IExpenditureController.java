@@ -1,17 +1,19 @@
 package com.deveyk.property_management.controller;
 
+import com.deveyk.property_management.dto.DtoExpenditure;
+import com.deveyk.property_management.dto.iu.DtoExpenditureIU;
 import com.deveyk.property_management.entity.Expenditure;
 import java.util.List;
 
 public interface IExpenditureController {
 
-    public Expenditure saveExpenditure(Expenditure expenditure);
+    public DtoExpenditure saveExpenditure(DtoExpenditureIU dtoExpenditureIU);
 
-    public List<Expenditure> getAllExpenditures();
+    public List<DtoExpenditure> getAllExpenditures();
 
-    public Expenditure getExpenditureById(Long id);
+    public DtoExpenditure getExpenditureById(Long id);
 
     public void deleteExpenditureById(Long id);
 
-    public Expenditure updateExpenditureById(Long id, Expenditure updateExpenditure);
+    public DtoExpenditure updateExpenditureById(Long id, DtoExpenditureIU dtoExpenditureIU);
 } 
