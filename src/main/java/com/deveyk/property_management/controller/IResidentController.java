@@ -1,17 +1,19 @@
 package com.deveyk.property_management.controller;
 
-import com.deveyk.property_management.entity.Resident;
+import com.deveyk.property_management.dto.DtoResident;
+import com.deveyk.property_management.dto.iu.DtoResidentIU;
+
 import java.util.List;
 
 public interface IResidentController {
 
-    public Resident saveResident(Resident resident);
+    public DtoResident saveResident(DtoResidentIU dtoResidentIU);
 
-    public List<Resident> getAllResidents();
+    public List<DtoResident> getAllResidents();
 
-    public Resident getResidentById(Long id);
+    public DtoResident getResidentById(Long id);
 
     public void deleteResidentById(Long id);
 
-    public Resident updateResidentById(Long id, Resident updateResident);
+    public DtoResident updateResidentById(Long id, DtoResidentIU dtoResidentIU);
 } 

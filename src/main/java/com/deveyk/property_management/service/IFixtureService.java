@@ -1,17 +1,19 @@
 package com.deveyk.property_management.service;
 
+import com.deveyk.property_management.dto.DtoFixture;
+import com.deveyk.property_management.dto.iu.DtoFixtureIU;
 import com.deveyk.property_management.entity.Fixture;
 import java.util.List;
 
 public interface IFixtureService {
 
-    public Fixture saveFixture(Fixture fixture);
+    public DtoFixture saveFixture(DtoFixtureIU dtoFixtureIU);
 
-    public List<Fixture> getAllFixtures();
+    public List<DtoFixture> getAllFixtures();
 
-    public Fixture getFixtureById(Long id);
+    public DtoFixture getFixtureById(Long id);
 
     public void deleteFixtureById(Long id);
 
-    public Fixture updateFixtureById(Long id, Fixture updateFixture);
+    public DtoFixture updateFixtureById(Long id, DtoFixtureIU dtoFixtureIU);
 } 

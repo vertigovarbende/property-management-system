@@ -1,17 +1,19 @@
 package com.deveyk.property_management.controller;
 
+import com.deveyk.property_management.dto.DtoFixtureFee;
+import com.deveyk.property_management.dto.iu.DtoFixtureFeeIU;
 import com.deveyk.property_management.entity.FixtureFee;
 import java.util.List;
 
 public interface IFixtureFeeController {
 
-    public FixtureFee saveFixtureFee(FixtureFee fixtureFee);
+    public DtoFixtureFee saveFixtureFee(DtoFixtureFeeIU dtoFixtureFeeIU);
 
-    public List<FixtureFee> getAllFixtureFees();
+    public List<DtoFixtureFee> getAllFixtureFees();
 
-    public FixtureFee getFixtureFeeById(Long id);
+    public DtoFixtureFee getFixtureFeeById(Long id);
 
     public void deleteFixtureFeeById(Long id);
 
-    public FixtureFee updateFixtureFeeById(Long id, FixtureFee updateFixtureFee);
-} 
+    public DtoFixtureFee updateFixtureFeeById(Long id, DtoFixtureFeeIU dtoFixtureFeeIU);
+}

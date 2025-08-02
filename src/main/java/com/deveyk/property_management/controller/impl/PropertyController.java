@@ -1,6 +1,8 @@
 package com.deveyk.property_management.controller.impl;
 
 import com.deveyk.property_management.controller.IPropertyController;
+import com.deveyk.property_management.dto.DtoProperty;
+import com.deveyk.property_management.dto.iu.DtoPropertyIU;
 import com.deveyk.property_management.entity.Property;
 import com.deveyk.property_management.service.IPropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +19,19 @@ public class PropertyController implements IPropertyController {
 
     @PostMapping("/save")
     @Override
-    public Property saveProperty(@RequestBody Property property) {
-        return propertyService.saveProperty(property);
+    public DtoProperty saveProperty(@RequestBody DtoPropertyIU dtoPropertyIU) {
+        return propertyService.saveProperty(dtoPropertyIU);
     }
 
     @GetMapping("/list")
     @Override
-    public List<Property> getAllProperties() {
+    public List<DtoProperty> getAllProperties() {
         return propertyService.getAllProperties();
     }
 
     @GetMapping("/list/{id}")
     @Override
-    public Property getPropertyById(@PathVariable(name = "id") Long id) {
+    public DtoProperty getPropertyById(@PathVariable(name = "id") Long id) {
         return propertyService.getPropertyById(id);
     }
 
@@ -41,8 +43,8 @@ public class PropertyController implements IPropertyController {
 
     @PutMapping("/update/{id}")
     @Override
-    public Property updatePropertyById(@PathVariable(name = "id") Long id,
-                                       @RequestBody Property updateProperty) {
-        return propertyService.updatePropertyById(id, updateProperty);
+    public DtoProperty updatePropertyById(@PathVariable(name = "id") Long id,
+                                       @RequestBody DtoPropertyIU dtoPropertyIU) {
+        return propertyService.updatePropertyById(id, dtoPropertyIU);
     }
 } 

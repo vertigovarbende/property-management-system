@@ -1,6 +1,8 @@
 package com.deveyk.property_management.controller.impl;
 
 import com.deveyk.property_management.controller.IDuesController;
+import com.deveyk.property_management.dto.DtoDues;
+import com.deveyk.property_management.dto.iu.DtoDuesIU;
 import com.deveyk.property_management.entity.Dues;
 import com.deveyk.property_management.service.IDuesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +19,19 @@ public class DuesController implements IDuesController {
 
     @PostMapping("/save")
     @Override
-    public Dues saveDues(@RequestBody Dues dues) {
-        return duesService.saveDues(dues);
+    public DtoDues saveDues(@RequestBody DtoDuesIU dtoDuesIU) {
+        return duesService.saveDues(dtoDuesIU);
     }
 
     @GetMapping("/list")
     @Override
-    public List<Dues> getAllDues() {
+    public List<DtoDues> getAllDues() {
         return duesService.getAllDues();
     }
 
     @GetMapping("/list/{id}")
     @Override
-    public Dues getDuesById(@PathVariable(name = "id") Long id) {
+    public DtoDues getDuesById(@PathVariable(name = "id") Long id) {
         return duesService.getDuesById(id);
     }
 
@@ -41,8 +43,8 @@ public class DuesController implements IDuesController {
 
     @PutMapping("/update/{id}")
     @Override
-    public Dues updateDuesById(@PathVariable(name = "id") Long id,
-                               @RequestBody Dues updateDues) {
-        return duesService.updateDuesById(id, updateDues);
+    public DtoDues updateDuesById(@PathVariable(name = "id") Long id,
+                               @RequestBody DtoDuesIU dtoDuesIU) {
+        return duesService.updateDuesById(id, dtoDuesIU);
     }
 } 

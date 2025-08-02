@@ -33,7 +33,7 @@ public class Apartment {
     @JoinColumn(name = "property_id")
     private Property property; // which property
 
-    @OneToOne(mappedBy = "apartment")
+    @OneToOne()
     @JoinColumn(name = "resident_id")
     private Resident resident; // which resident
 

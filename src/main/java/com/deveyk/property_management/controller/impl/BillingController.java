@@ -1,6 +1,8 @@
 package com.deveyk.property_management.controller.impl;
 
 import com.deveyk.property_management.controller.IBillingController;
+import com.deveyk.property_management.dto.DtoBilling;
+import com.deveyk.property_management.dto.iu.DtoBillingIU;
 import com.deveyk.property_management.entity.Billing;
 import com.deveyk.property_management.service.IBillingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +19,19 @@ public class BillingController implements IBillingController {
 
     @PostMapping("/save")
     @Override
-    public Billing saveBilling(@RequestBody Billing billing) {
-        return billingService.saveBilling(billing);
+    public DtoBilling saveBilling(@RequestBody DtoBillingIU dtoBillingIU) {
+        return billingService.saveBilling(dtoBillingIU);
     }
 
     @GetMapping("/list")
     @Override
-    public List<Billing> getAllBillings() {
+    public List<DtoBilling> getAllBillings() {
         return billingService.getAllBillings();
     }
 
     @GetMapping("/list/{id}")
     @Override
-    public Billing getBillingById(@PathVariable(name = "id") Long id) {
+    public DtoBilling getBillingById(@PathVariable(name = "id") Long id) {
         return billingService.getBillingById(id);
     }
 
@@ -41,8 +43,8 @@ public class BillingController implements IBillingController {
 
     @PutMapping("/update/{id}")
     @Override
-    public Billing updateBillingById(@PathVariable(name = "id") Long id,
-                                         @RequestBody Billing updateBilling) {
-        return billingService.updateBillingById(id, updateBilling);
+    public DtoBilling updateBillingById(@PathVariable(name = "id") Long id,
+                                         @RequestBody DtoBillingIU dtoBillingIU) {
+        return billingService.updateBillingById(id, dtoBillingIU);
     }
 }

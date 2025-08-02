@@ -1,7 +1,8 @@
 package com.deveyk.property_management.controller.impl;
 
 import com.deveyk.property_management.controller.IResidentController;
-import com.deveyk.property_management.entity.Resident;
+import com.deveyk.property_management.dto.DtoResident;
+import com.deveyk.property_management.dto.iu.DtoResidentIU;
 import com.deveyk.property_management.service.IResidentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,19 +18,19 @@ public class ResidentController implements IResidentController {
 
     @PostMapping("/save")
     @Override
-    public Resident saveResident(@RequestBody Resident resident) {
-        return residentService.saveResident(resident);
+    public DtoResident saveResident(@RequestBody DtoResidentIU dtoResidentIU) {
+        return residentService.saveResident(dtoResidentIU);
     }
 
     @GetMapping("/list")
     @Override
-    public List<Resident> getAllResidents() {
+    public List<DtoResident> getAllResidents() {
         return residentService.getAllResidents();
     }
 
     @GetMapping("/list/{id}")
     @Override
-    public Resident getResidentById(@PathVariable(name = "id") Long id) {
+    public DtoResident getResidentById(@PathVariable(name = "id") Long id) {
         return residentService.getResidentById(id);
     }
 
@@ -41,8 +42,8 @@ public class ResidentController implements IResidentController {
 
     @PutMapping("/update/{id}")
     @Override
-    public Resident updateResidentById(@PathVariable(name = "id") Long id,
-                                       @RequestBody Resident updateResident) {
-        return residentService.updateResidentById(id, updateResident);
+    public DtoResident updateResidentById(@PathVariable(name = "id") Long id,
+                                       @RequestBody DtoResidentIU dtoResidentIU) {
+        return residentService.updateResidentById(id, dtoResidentIU);
     }
 } 
