@@ -5,6 +5,7 @@ import com.deveyk.property_management.dto.DtoFixtureFee;
 import com.deveyk.property_management.dto.iu.DtoFixtureFeeIU;
 import com.deveyk.property_management.entity.FixtureFee;
 import com.deveyk.property_management.service.IFixtureFeeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class FixtureFeeController implements IFixtureFeeController {
 
     @PostMapping("/save")
     @Override
-    public DtoFixtureFee saveFixtureFee(@RequestBody DtoFixtureFeeIU dtoFixtureFeeIU) {
+    public DtoFixtureFee saveFixtureFee(@RequestBody @Valid DtoFixtureFeeIU dtoFixtureFeeIU) {
         return fixtureFeeService.saveFixtureFee(dtoFixtureFeeIU);
     }
 
@@ -44,7 +45,7 @@ public class FixtureFeeController implements IFixtureFeeController {
     @PutMapping("/update/{id}")
     @Override
     public DtoFixtureFee updateFixtureFeeById(@PathVariable(name = "id") Long id,
-                                           @RequestBody DtoFixtureFeeIU dtoFixtureFeeIU) {
+                                           @RequestBody @Valid DtoFixtureFeeIU dtoFixtureFeeIU) {
         return fixtureFeeService.updateFixtureFeeById(id, dtoFixtureFeeIU);
     }
 } 

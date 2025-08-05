@@ -5,6 +5,7 @@ import com.deveyk.property_management.dto.DtoProperty;
 import com.deveyk.property_management.dto.iu.DtoPropertyIU;
 import com.deveyk.property_management.entity.Property;
 import com.deveyk.property_management.service.IPropertyService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class PropertyController implements IPropertyController {
 
     @PostMapping("/save")
     @Override
-    public DtoProperty saveProperty(@RequestBody DtoPropertyIU dtoPropertyIU) {
+    public DtoProperty saveProperty(@RequestBody @Valid DtoPropertyIU dtoPropertyIU) {
         return propertyService.saveProperty(dtoPropertyIU);
     }
 
@@ -44,7 +45,7 @@ public class PropertyController implements IPropertyController {
     @PutMapping("/update/{id}")
     @Override
     public DtoProperty updatePropertyById(@PathVariable(name = "id") Long id,
-                                       @RequestBody DtoPropertyIU dtoPropertyIU) {
+                                       @RequestBody @Valid DtoPropertyIU dtoPropertyIU) {
         return propertyService.updatePropertyById(id, dtoPropertyIU);
     }
 } 

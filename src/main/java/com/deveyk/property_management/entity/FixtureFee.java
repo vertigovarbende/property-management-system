@@ -33,7 +33,7 @@ public class FixtureFee {
     @Column(name = "date")
     private LocalDate date;
 
-    @Column(name = "description")
+    @Column(name = "description", length = 50)
     private String description;
 
     @ManyToOne

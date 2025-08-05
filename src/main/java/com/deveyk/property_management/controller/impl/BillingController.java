@@ -5,6 +5,7 @@ import com.deveyk.property_management.dto.DtoBilling;
 import com.deveyk.property_management.dto.iu.DtoBillingIU;
 import com.deveyk.property_management.entity.Billing;
 import com.deveyk.property_management.service.IBillingService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class BillingController implements IBillingController {
 
     @PostMapping("/save")
     @Override
-    public DtoBilling saveBilling(@RequestBody DtoBillingIU dtoBillingIU) {
+    public DtoBilling saveBilling(@RequestBody @Valid DtoBillingIU dtoBillingIU) {
         return billingService.saveBilling(dtoBillingIU);
     }
 
@@ -44,7 +45,7 @@ public class BillingController implements IBillingController {
     @PutMapping("/update/{id}")
     @Override
     public DtoBilling updateBillingById(@PathVariable(name = "id") Long id,
-                                         @RequestBody DtoBillingIU dtoBillingIU) {
+                                         @RequestBody @Valid DtoBillingIU dtoBillingIU) {
         return billingService.updateBillingById(id, dtoBillingIU);
     }
 }
