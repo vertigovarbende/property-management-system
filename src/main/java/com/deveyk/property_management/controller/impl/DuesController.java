@@ -5,6 +5,7 @@ import com.deveyk.property_management.dto.DtoDues;
 import com.deveyk.property_management.dto.iu.DtoDuesIU;
 import com.deveyk.property_management.entity.Dues;
 import com.deveyk.property_management.service.IDuesService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class DuesController implements IDuesController {
 
     @PostMapping("/save")
     @Override
-    public DtoDues saveDues(@RequestBody DtoDuesIU dtoDuesIU) {
+    public DtoDues saveDues(@RequestBody @Valid DtoDuesIU dtoDuesIU) {
         return duesService.saveDues(dtoDuesIU);
     }
 
@@ -44,7 +45,7 @@ public class DuesController implements IDuesController {
     @PutMapping("/update/{id}")
     @Override
     public DtoDues updateDuesById(@PathVariable(name = "id") Long id,
-                               @RequestBody DtoDuesIU dtoDuesIU) {
+                               @RequestBody @Valid DtoDuesIU dtoDuesIU) {
         return duesService.updateDuesById(id, dtoDuesIU);
     }
 } 

@@ -5,6 +5,7 @@ import com.deveyk.property_management.dto.DtoFixture;
 import com.deveyk.property_management.dto.iu.DtoFixtureIU;
 import com.deveyk.property_management.entity.Fixture;
 import com.deveyk.property_management.service.IFixtureService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class FixtureController implements IFixtureController {
 
     @PostMapping("/save")
     @Override
-    public DtoFixture saveFixture(@RequestBody DtoFixtureIU dtoFixtureIU) {
+    public DtoFixture saveFixture(@RequestBody @Valid DtoFixtureIU dtoFixtureIU) {
         return fixtureService.saveFixture(dtoFixtureIU);
     }
 
@@ -44,7 +45,7 @@ public class FixtureController implements IFixtureController {
     @PutMapping("/update/{id}")
     @Override
     public DtoFixture updateFixtureById(@PathVariable(name = "id") Long id,
-                                     @RequestBody DtoFixtureIU dtoFixtureIU) {
+                                     @RequestBody @Valid DtoFixtureIU dtoFixtureIU) {
         return fixtureService.updateFixtureById(id, dtoFixtureIU);
     }
 } 

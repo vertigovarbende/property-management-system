@@ -25,7 +25,7 @@ public class Fixture {
     @Column(name = "fixture_name", nullable = false)
     private String fixtureName; // name of the fixture (lift/elevator, generator etc.)
 
-    @Column(name = "description")
+    @Column(name = "description", length = 50)
     private String description;
 
     @ManyToOne

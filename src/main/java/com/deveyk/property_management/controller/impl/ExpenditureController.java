@@ -5,6 +5,7 @@ import com.deveyk.property_management.dto.DtoExpenditure;
 import com.deveyk.property_management.dto.iu.DtoExpenditureIU;
 import com.deveyk.property_management.entity.Expenditure;
 import com.deveyk.property_management.service.IExpenditureService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class ExpenditureController implements IExpenditureController {
 
     @PostMapping("/save")
     @Override
-    public DtoExpenditure saveExpenditure(@RequestBody DtoExpenditureIU dtoExpenditureIU) {
+    public DtoExpenditure saveExpenditure(@RequestBody @Valid DtoExpenditureIU dtoExpenditureIU) {
         return expenditureService.saveExpenditure(dtoExpenditureIU);
     }
 
@@ -44,7 +45,7 @@ public class ExpenditureController implements IExpenditureController {
     @PutMapping("/update/{id}")
     @Override
     public DtoExpenditure updateExpenditureById(@PathVariable(name = "id") Long id,
-                                             @RequestBody DtoExpenditureIU dtoExpenditureIU) {
+                                             @RequestBody @Valid DtoExpenditureIU dtoExpenditureIU) {
         return expenditureService.updateExpenditureById(id, dtoExpenditureIU);
     }
 } 

@@ -5,6 +5,7 @@ import com.deveyk.property_management.dto.DtoFixtureFeeShare;
 import com.deveyk.property_management.dto.iu.DtoFixtureFeeShareIU;
 import com.deveyk.property_management.entity.FixtureFeeShare;
 import com.deveyk.property_management.service.IFixtureFeeShareService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class FixtureFeeShareController implements IFixtureFeeShareController {
 
     @PostMapping("/save")
     @Override
-    public DtoFixtureFeeShare saveFixtureFeeShare(@RequestBody DtoFixtureFeeShareIU dtoFixtureFeeShareIU) {
+    public DtoFixtureFeeShare saveFixtureFeeShare(@RequestBody @Valid DtoFixtureFeeShareIU dtoFixtureFeeShareIU) {
         return fixtureFeeShareService.saveFixtureFeeShare(dtoFixtureFeeShareIU);
     }
 
@@ -44,7 +45,7 @@ public class FixtureFeeShareController implements IFixtureFeeShareController {
     @PutMapping("/update/{id}")
     @Override
     public DtoFixtureFeeShare updateFixtureFeeShareById(@PathVariable(name = "id") Long id,
-                                                     @RequestBody DtoFixtureFeeShareIU dtoFixtureFeeShareIU) {
+                                                     @RequestBody @Valid DtoFixtureFeeShareIU dtoFixtureFeeShareIU) {
         return fixtureFeeShareService.updateFixtureFeeShareById(id, dtoFixtureFeeShareIU);
     }
 } 

@@ -4,6 +4,7 @@ import com.deveyk.property_management.controller.IApartmentController;
 import com.deveyk.property_management.dto.DtoApartment;
 import com.deveyk.property_management.dto.iu.DtoApartmentIU;
 import com.deveyk.property_management.service.IApartmentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class ApartmentController implements IApartmentController {
 
     @PostMapping("/save")
     @Override
-    public DtoApartment saveApartment(@RequestBody DtoApartmentIU dtoApartmentIU) {
+    public DtoApartment saveApartment(@RequestBody @Valid DtoApartmentIU dtoApartmentIU) {
         return apartmentService.saveApartment(dtoApartmentIU);
     }
 
@@ -43,7 +44,7 @@ public class ApartmentController implements IApartmentController {
     @PutMapping("/update/{id}")
     @Override
     public DtoApartment updateApartmentById(@PathVariable(name = "id") Long id,
-                                         @RequestBody DtoApartmentIU dtoApartmentIU) {
+                                         @RequestBody @Valid DtoApartmentIU dtoApartmentIU) {
         return apartmentService.updateApartmentById(id, dtoApartmentIU);
     }
 }

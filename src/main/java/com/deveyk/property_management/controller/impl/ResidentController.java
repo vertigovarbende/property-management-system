@@ -4,6 +4,7 @@ import com.deveyk.property_management.controller.IResidentController;
 import com.deveyk.property_management.dto.DtoResident;
 import com.deveyk.property_management.dto.iu.DtoResidentIU;
 import com.deveyk.property_management.service.IResidentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class ResidentController implements IResidentController {
 
     @PostMapping("/save")
     @Override
-    public DtoResident saveResident(@RequestBody DtoResidentIU dtoResidentIU) {
+    public DtoResident saveResident(@RequestBody @Valid DtoResidentIU dtoResidentIU) {
         return residentService.saveResident(dtoResidentIU);
     }
 
@@ -43,7 +44,7 @@ public class ResidentController implements IResidentController {
     @PutMapping("/update/{id}")
     @Override
     public DtoResident updateResidentById(@PathVariable(name = "id") Long id,
-                                       @RequestBody DtoResidentIU dtoResidentIU) {
+                                       @RequestBody @Valid DtoResidentIU dtoResidentIU) {
         return residentService.updateResidentById(id, dtoResidentIU);
     }
 } 
